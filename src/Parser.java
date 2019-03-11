@@ -30,12 +30,14 @@ public class Parser {
                     sb.append(a + " 0\n");
                     clauseCount++;
                 }
-
-                i++;
+                if (c != 10) {
+                    i++;
+                }
             }
             reader.close();
         } catch(IOException ex){
             ex.printStackTrace();
+            System.exit(1);
         }
 
 //1 point of formula

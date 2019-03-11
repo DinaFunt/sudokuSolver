@@ -13,10 +13,11 @@ public class Solver {
     private int[][] array;
     private int[] solve;
     private String formulaFile;
+    private static int varCount = 729;
 
     public Solver(String file) {
         array = new int[9][9];
-        this.solve = new int[729];
+        this.solve = new int[varCount];
         this.formulaFile = file;
     }
 
@@ -49,12 +50,12 @@ public class Solver {
         solve();
         int col, row, val;
 
-        for (int i = 0; i < 729; i++) {
+        for (int i = 0; i < varCount; i++) {
 
             if (solve[i] > 0) {
-                row = ((i) / 81);
-                col = ((i) % 81) / 9;
-                val = (i) % 9 + 1;
+                row = (i / 81);
+                col = (i % 81) / 9;
+                val = (i % 9) + 1;
                 array[row][col] = val;
             }
         }
